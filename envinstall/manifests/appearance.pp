@@ -21,7 +21,7 @@
 #
 class envinstall::appearance {
 
-  $appearance_pkgs = [ 'zukitwo-themes', 'xfce-theme-greybird', 'faenza-icon-theme', 'faience-icon-theme', 'xcursor-comix' ]
+  $appearance_pkgs = [ 'zukitwo-themes', 'xfce-theme-greybird', 'faenza-icon-theme', 'faience-icon-theme', 'xcursor-comix', 'compton' ]
   $xfce_current_theme = 'Greybird'
   $xfce_current_icons = 'Faience-Azur'
   $xfce_current_cursor = 'ComixCursors-White'
@@ -58,4 +58,20 @@ class envinstall::appearance {
     path => '/bin/:/usr/bin/',
     unless => "xfconf-query -c xfce4-notifyd -p /theme | grep Greybird",
   }
+
+  if ! defined(Vcsrepo['/tmp/common-files']) {
+    vcsrepo { '/tmp/common-files':
+      ensure => present,
+      provider => git,
+      source => 'https://github.com/sorrowless/common-files.git',
+    }
+  }
+
+  file { '/home/$user/.config/autostart/compton.desktop':
+    ensure => present,
+    owner => $user,
+    source => '/tmp/common-files/home/sbog/.config/autostart/compton.desktop',
+    require => Vcsrepo['/tmp/common-files'],
+  }
+
 }

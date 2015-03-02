@@ -22,7 +22,7 @@
 #
 class envinstall::packages {
 
- $pkgs = [ 'plank', 'plank-config', 'compton', 'cairo-infinality-ultimate', 'fontconfig-infinality-ultimate', 'freetype2-infinality-ultimate', 'xatk', 'transmission-gtk', 'transmission-remote-gui-bin', 'doublecmd-gtk2', 'nethogs', 'tmux', 'wireshark', 'acroread', 'keepassx', 'keepassx-faenza-icons', 'glances', 'menutray' ]
+ $pkgs = [ 'plank', 'plank-config', 'cairo-infinality-ultimate', 'fontconfig-infinality-ultimate', 'freetype2-infinality-ultimate', 'xatk', 'transmission-gtk', 'transmission-remote-gui-bin', 'doublecmd-gtk2', 'nethogs', 'tmux', 'wireshark', 'acroread', 'keepassx', 'keepassx-faenza-icons', 'glances' ]
 
  $extra_pkgs = [ 'moka-icon-theme-git', 'numix-circle-icon-theme-git' ]
 

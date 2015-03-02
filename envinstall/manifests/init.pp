@@ -22,17 +22,18 @@
 #
 class envinstall {
 
-  #include envinstall::slim
-  include envinstall::lightdm
-
   include envinstall::packages
+  include envinstall::common
   include envinstall::multimedia::audio
   include envinstall::multimedia::pictures
   include envinstall::multimedia::video
 
+  #include envinstall::slim
+  include envinstall::lightdm
   include envinstall::tint2
 
   include envinstall::appearance
+  include envinstall::batticon
   include envinstall::hotkeys
   include envinstall::xkb_plugin
 }
