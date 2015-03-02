@@ -18,9 +18,19 @@
 #
 # === Copyright
 #
-# Copyright 2014 Stanislaw Bogatkin.
+# Copyright 2014-2015 Stanislaw Bogatkin.
 #
 class envinstall {
+
+  #include envinstall::slim
+  include envinstall::lightdm
+
+  include envinstall::packages
+  include envinstall::multimedia::audio
+  include envinstall::multimedia::pictures
+  include envinstall::multimedia::video
+
+  include envinstall::tint2
 
   include envinstall::appearance
   include envinstall::hotkeys

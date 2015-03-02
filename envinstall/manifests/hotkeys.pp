@@ -23,11 +23,11 @@ class envinstall::hotkeys {
 
   package { 'xfconf': ensure => installed } ->
 
-  exec { 'slimlock':
-    command => "xfconf-query -c xfce4-keyboard-shortcuts -p '/commands/custom/<Super>l' -n -t string -s slimlock",
-    path => '/bin/:/usr/bin/',
-    unless => "xfconf-query -c xfce4-keyboard-shortcuts -p '/commands/custom/<Super>l' | grep slimlock",
-  }
+#  exec { 'slimlock':
+#    command => "xfconf-query -c xfce4-keyboard-shortcuts -p '/commands/custom/<Super>l' -n -t string -s slimlock",
+#    path => '/bin/:/usr/bin/',
+#    unless => "xfconf-query -c xfce4-keyboard-shortcuts -p '/commands/custom/<Super>l' | grep slimlock",
+#  }
 
   exec { 'ws1':
     command => "xfconf-query -c xfce4-keyboard-shortcuts -p '/xfwm4/custom/<Super>1' -n -t string -s workspace_1_key",

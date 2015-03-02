@@ -17,15 +17,15 @@
 #
 # === Copyright
 #
-# Copyright 2014 Stanislaw Bogatkin.
+# Copyright 2014-2015 Stanislaw Bogatkin.
 #
 class envinstall::appearance {
 
   $appearance_pkgs = [ 'zukitwo-themes', 'xfce-theme-greybird', 'faenza-icon-theme', 'faience-icon-theme', 'xcursor-comix' ]
-  $xfce_current_theme = 'Zukitwo'
+  $xfce_current_theme = 'Greybird'
   $xfce_current_icons = 'Faience-Azur'
   $xfce_current_cursor = 'ComixCursors-White'
-  $xfce_current_xfwm = 'Zukitwo'
+  $xfce_current_xfwm = 'Greybird'
 
   package { $appearance_pkgs: ensure => installed } ->
 

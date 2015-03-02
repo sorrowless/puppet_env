@@ -22,7 +22,7 @@
 #
 class envinstall::packages {
 
- $pkgs = [ 'pulseaudio', 'pulseaudio-alsa', 'paprefs', 'pavucontrol', 'pasystray-git', 'xfce4-volumed', 'gstreamer0.10-good-plugins', 'plank', 'plank-config', 'compton', 'cairo-infinality-ultimate', 'fontconfig-infinality-ultimate', 'freetype2-infinality-ultimate', 'xnviewmp', 'xatk', 'rosa-media-player', 'rygel', 'transmission-gtk', 'transmission-remote-gui-bin', 'doublecmd-gtk2', 'nethogs', 'tmux', 'wireshark', 'acroread', 'keepassx', 'keepassx-faenza-icons', 'glances', 'tint2', 'menutray', 'cbatticon' ]
+ $pkgs = [ 'plank', 'plank-config', 'compton', 'cairo-infinality-ultimate', 'fontconfig-infinality-ultimate', 'freetype2-infinality-ultimate', 'xatk', 'transmission-gtk', 'transmission-remote-gui-bin', 'doublecmd-gtk2', 'nethogs', 'tmux', 'wireshark', 'acroread', 'keepassx', 'keepassx-faenza-icons', 'glances', 'menutray' ]
 
  $extra_pkgs = [ 'moka-icon-theme-git', 'numix-circle-icon-theme-git' ]
 

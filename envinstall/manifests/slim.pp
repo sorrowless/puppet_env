@@ -24,16 +24,14 @@ class envinstall::slim {
   $slim_pkgs = [ 'slim', 'slim-themes' ]
   $slim_current_theme = 'october'
 
-  package { $slim_pkgs: 
+  package { $slim_pkgs:
     ensure => installed
   } ->
 
   vcsrepo { '/tmp/slim_october_theme':
     ensure => present,
     provider => git,
-    #source => 'git@git.sbog.ru:/data/git/slim_october_theme.git',
     source => 'https://github.com/sorrowless/slim_october_theme.git',
-    user => sbog, # we need that user and his ssh keys
   } ->
 
   file { "/usr/share/slim/themes/$slim_current_theme":
@@ -45,5 +43,12 @@ class envinstall::slim {
   exec { 'change_theme':
     command => 'sed -i "/^#/! s:current_theme.*:current_theme october:g" /etc/slim.conf',
     path => '/bin/:/usr/bin/',
+  } ->
+
+  exec { 'slimlock':
+    command => "xfconf-query -c xfce4-keyboard-shortcuts -p '/commands/custom/<Super>l' -n -t string -s slimlock",
+    path => '/bin/:/usr/bin/',
+    unless => "xfconf-query -c xfce4-keyboard-shortcuts -p '/commands/custom/<Super>l' | grep slimlock",
   }
+
 }
