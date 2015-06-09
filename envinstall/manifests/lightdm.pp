@@ -34,7 +34,7 @@ class envinstall::lightdm ( $user = $envinstall::params::user ) inherits envinst
     source => 'https://github.com/sorrowless/LightDM-Webkit-MacOSX-Theme.git',
   } ->
 
-  file { "/usr/share/lightdm/themes/$lightdm_current_theme":
+  file { "/usr/share/lightdm-webkit/themes/$lightdm_current_theme":
     ensure => directory,
     owner  => root,
     source => '/tmp/lightdm_mac_theme',
@@ -59,7 +59,7 @@ class envinstall::lightdm ( $user = $envinstall::params::user ) inherits envinst
     }
   }
 
-  file { '/home/$user/.config/autostart/light-locker.desktop':
+  file { '/home/sbog/.config/autostart/light-locker.desktop':
     ensure => present,
     owner => $user,
     source => '/tmp/common-files/home/sbog/.config/autostart/light-locker.desktop',

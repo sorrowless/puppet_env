@@ -21,7 +21,7 @@
 #
 class envinstall::appearance {
 
-  $appearance_pkgs = [ 'zukitwo-themes', 'xfce-theme-greybird', 'faenza-icon-theme', 'faience-icon-theme', 'xcursor-comix', 'compton' ]
+  $appearance_pkgs = [ 'xfce-theme-greybird', 'faience-icon-theme', 'xcursor-comix', 'compton' ]
   $xfce_current_theme = 'Greybird'
   $xfce_current_icons = 'Faience-Azur'
   $xfce_current_cursor = 'ComixCursors-White'
