@@ -21,11 +21,11 @@
 #
 class envinstall::lightdm ( $user = $envinstall::params::user ) inherits envinstall::params {
 
-  $lightdm_pkgs = [ 'lightdm', 'lightdm-webkit-greeter', 'light-locker' ]
+  $lightdm_pkgs = [ 'lightdm', 'lightdm-webkit-greeter', 'light-locker', 'xfconf' ]
   $lightdm_current_theme = 'mac'
 
   package { $lightdm_pkgs:
-    ensure => installed
+    ensure => installed,
   } ->
 
   vcsrepo { '/tmp/lightdm_mac_theme':
