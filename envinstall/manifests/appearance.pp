@@ -28,7 +28,6 @@ class envinstall::appearance (
     $appearance_pkgs = [ 'zukitwo-themes', 'xfce-theme-greybird', 'faenza-icon-theme', 'faience-icon-theme', 'xcursor-comix', 'compton', 'compiz', compass-icon-theme', 'numix-frost-themes' ],
 ) inherits envinstall::params {
 
-
   package { $appearance_pkgs: ensure => installed } ->
 
   exec { 'change_xfce_theme':
