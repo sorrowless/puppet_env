@@ -19,41 +19,48 @@
 #
 # Copyright 2014-2015 Stanislaw Bogatkin.
 #
-class envinstall::appearance {
+class envinstall::appearance (
+    $user = $envinstall::params::user,
+    $xfce_current_theme = 'Numix-Frost-Light',
+    $xfce_current_icons = 'Compass',
+    $xfce_current_cursor = 'ComixCursors-White',
+    $xfce_current_xfwm = 'Greybird',
+    $appearance_pkgs = [ 'zukitwo-themes', 'xfce-theme-greybird', 'faenza-icon-theme', 'faience-icon-theme', 'xcursor-comix', 'compton', 'compiz', compass-icon-theme', 'numix-frost-themes' ],
+) inherits envinstall::params {
 
-  $appearance_pkgs = [ 'zukitwo-themes', 'xfce-theme-greybird', 'faenza-icon-theme', 'faience-icon-theme', 'xcursor-comix', 'compton' ]
-  $xfce_current_theme = 'Greybird'
-  $xfce_current_icons = 'Faience-Azur'
-  $xfce_current_cursor = 'ComixCursors-White'
-  $xfce_current_xfwm = 'Greybird'
 
   package { $appearance_pkgs: ensure => installed } ->
 
   exec { 'change_xfce_theme':
+    user => $user,
     command => "xfconf-query -c xsettings -p /Net/ThemeName -s $xfce_current_theme",
     path => '/bin/:/usr/bin/',
     unless => "xfconf-query -c xsettings -p /Net/ThemeName | grep $xfce_current_theme",
   } ->
 
   exec { 'change_icon_theme':
+    user => $user,
     command => "xfconf-query -c xsettings -p /Net/IconThemeName -s $xfce_current_icons",
     path => '/bin/:/usr/bin/',
     unless => "xfconf-query -c xsettings -p /Net/IconThemeName | grep $xfce_current_icons",
   } ->
 
   exec { 'change_cursor_theme':
+    user => $user,
     command => "xfconf-query -c xsettings -p /Gtk/CursorThemeName -s $xfce_current_cursor",
     path => '/bin/:/usr/bin/',
     unless => "xfconf-query -c xsettings -p /Gtk/CursorThemeName | grep $xfce_current_cursor",
   } ->
 
   exec { 'change_xfwm_theme':
+    user => user,
     command => "xfconf-query -c xfwm4 -p /general/theme -s $xfce_current_xfwm",
     path => '/bin/:/usr/bin/',
     unless => "xfconf-query -c xfwm4 -p /general/theme | grep $xfce_current_xfwm",
   } ->
 
   exec { 'change_notify_theme':
+    user => user,
     command => "xfconf-query -c xfce4-notifyd -p /theme -s Greybird",
     path => '/bin/:/usr/bin/',
     unless => "xfconf-query -c xfce4-notifyd -p /theme | grep Greybird",

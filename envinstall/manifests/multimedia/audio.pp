@@ -13,7 +13,7 @@
 #
 # === Authors
 #
-# Stanislaw Bogatkin <stabog.tmn@gmail.com>
+# Stanislaw Bogatkin <stabog.tmb@gmail.com>
 #
 # === Copyright
 #
@@ -22,9 +22,15 @@
 class envinstall::multimedia::audio ( $user = $envinstall::params::user ) inherits envinstall::params {
 
   $pulse_pkgs = [ 'pulseaudio', 'pulseaudio-alsa', 'paprefs', 'pavucontrol', 'pasystray-git', 'xfce4-volumed', 'pnmixer', 'rygel' ]
+  $players = [ 'deadbeef', 'deadbeef-mpris2-plugin' ]
+
 
   package { $pulse_pkgs:
-    ensure => installed
+    ensure => installed,
+  }
+
+  package { $players:
+    ensure => installed,
   }
 
   if ! defined(Vcsrepo['/tmp/common-files']) {

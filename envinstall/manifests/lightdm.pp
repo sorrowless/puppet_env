@@ -41,11 +41,13 @@ class envinstall::lightdm ( $user = $envinstall::params::user ) inherits envinst
   } ->
 
   exec { 'change_theme':
+    user => $user,
     command => 'sed -i "/^#/! s:webkit-theme=.*:webkit-theme=mac:g" /etc/lightdm/lightdm-webkit-greeter.conf',
     path => '/bin/:/usr/bin/',
   } ->
 
   exec { 'light-lock':
+    user => $user,
     command => "xfconf-query -c xfce4-keyboard-shortcuts -p '/commands/custom/<Super>l' -n -t string -s 'light-locker-command -l'",
     path => '/bin/:/usr/bin/',
     unless => "xfconf-query -c xfce4-keyboard-shortcuts -p '/commands/custom/<Super>l' | grep light-locker-command",

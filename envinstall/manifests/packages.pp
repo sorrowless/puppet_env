@@ -26,6 +26,16 @@ class envinstall::packages {
 
  $extra_pkgs = [ 'moka-icon-theme-git', 'numix-circle-icon-theme-git' ]
 
+ # gnome3 extensions:
+ # hide top bar: https://extensions.gnome.org/extension/545/hide-top-bar/
+ # applications menu: https://extensions.gnome.org/extension/6/applications-menu/
+ # places status indicator: https://extensions.gnome.org/extension/8/places-status-indicator/
+ # system monitor: https://extensions.gnome.org/extension/9/systemmonitor/
+ # user themes: https://extensions.gnome.org/extension/19/user-themes/
+ # maximus two: https://extensions.gnome.org/extension/844/maximus-two/
+ # media player indicator: https://extensions.gnome.org/extension/55/media-player-indicator/
+ #$gnome3_pkgs = [ 'gnome-session-properties' ]
+
  $notebook_pkgs = [ 'bumblebee' ]
 
  package { $pkgs: ensure => installed }
