@@ -21,6 +21,7 @@
 # Copyright 2014-2015 Stanislaw Bogatkin.
 #
 class envinstall {
+  include envinstall::base
 
   include envinstall::packages
   include envinstall::common

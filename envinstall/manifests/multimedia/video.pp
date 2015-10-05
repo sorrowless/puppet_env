@@ -19,7 +19,7 @@
 #
 # Copyright 2015 Stanislaw Bogatkin.
 #
-class envinstall::multimedia::audio ( $user = $envinstall::params::user ) inherits envinstall::params {
+class envinstall::multimedia::video ( $user = $envinstall::params::user ) inherits envinstall::params {
 
   $codecs_pkgs = [ 'gstreamer0.10-good-plugins' ]
   $viewers_pkgs = [ 'smplayer' ]

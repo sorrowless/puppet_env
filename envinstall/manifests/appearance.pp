@@ -25,7 +25,7 @@ class envinstall::appearance (
     $xfce_current_icons = 'Compass',
     $xfce_current_cursor = 'ComixCursors-White',
     $xfce_current_xfwm = 'Greybird',
-    $appearance_pkgs = [ 'zukitwo-themes', 'xfce-theme-greybird', 'faenza-icon-theme', 'faience-icon-theme', 'xcursor-comix', 'compton', 'compiz', compass-icon-theme', 'numix-frost-themes' ],
+    $appearance_pkgs = [ 'zukitwo-themes', 'xfce-theme-greybird', 'faenza-icon-theme', 'faience-icon-theme', 'xcursor-comix', 'compton', 'compiz', 'compass-icon-theme', 'numix-frost-themes' ],
 ) inherits envinstall::params {
 
   package { $appearance_pkgs: ensure => installed } ->
